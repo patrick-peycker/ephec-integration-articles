@@ -1,0 +1,11 @@
+<h5>Values</h5>
+
+<div *ngIf="values == null">
+    <p>Chargement en cours</p>
+</div>
+
+<div *ngIf="values !=null">
+    <div *ngFor="let item of values" class="m-2 p-2 bg-primary">
+        <p>{{item}}</p>
+    </div>
+</div>

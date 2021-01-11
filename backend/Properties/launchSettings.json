@@ -1,0 +1,24 @@
+{
+  //"iisSettings": {
+  //  "windowsAuthentication": false,
+  //  "anonymousAuthentication": true,
+  //  "iisExpress": {
+  //    "applicationUrl": "http://localhost:61504",
+  //    "sslPort": 0
+  //  }
+  //},
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "SimpleWebApi": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5001"
+    },
+    "Azure Dev Spaces": {
+      "commandName": "AzureDevSpaces",
+      "launchBrowser": true
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<a type="button" class="btn btn-info m-2" routerLink="/create">Add Article</a>
+
+<div class="container m-2 p-2">
+    <h5>Articles</h5>
+    <div class="border border-black p-2 mb-2">
+        <ul class="list-group">
+            <app-article *ngFor="let article of articles" [id]="article.id" [nom]="article.nom" [prix]="article.prix"
+                [stock]="article.stock">
+            </app-article>
+        </ul>
+    </div>
+</div>

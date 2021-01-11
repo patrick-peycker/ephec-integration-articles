@@ -1,0 +1,19 @@
+<li [ngClass]="getClass()">
+    <p [ngStyle]="{color:getColor()}">{{title}}</p>
+    
+    <div *ngIf="stock <= 0" class="bg-danger" style="height: 20px; width :20px;"></div> 
+    <div *ngIf="stock > 0" class="bg-success" style="height: 20px; width :20px;"></div>
+
+    <p>Id : {{id}}</p>
+    <p>Name : {{nom}}</p>
+    <p>Price : {{prix}}</p>
+    <p>Stock : {{stock}}</p>
+
+    <!-- Two-way binding gives your app a way to share data between a component class and its template.-->
+    <input type="text" class="form-control" [(ngModel)]="stock" >
+
+    <!-- Bind button disabled state to `isAuthenticated` property -->
+    <!-- The event binding listens for the button's click events and calls the component's onAdd() method whenever a click occurs-->
+    <button class="btn btn-primary m-2" [disabled]="!getIsAuth()" (click)="onAdd()">Add</button>
+    <a class="btn btn-info m-2" routerLink="/detail/{{id}}">Detail</a>
+</li>

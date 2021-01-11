@@ -1,0 +1,61 @@
+<div class="container m-2 p-2 bg-light">
+
+    <h5>Article - Create</h5>
+
+    <!--Form réactive-->
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label for="nom">Nom : </label>
+            <input type="text" id="nom" class="form-control" formControlName="nom" />
+            <div *ngIf="isSubmitted && articleFormGroupControls.nom.invalid" class="text-danger">
+                <div *ngIf="articleFormGroupControls.nom.errors.required">Le champs est requis</div>
+                <div *ngIf="articleFormGroupControls.nom.errors.maxlength">Le champs doit être au maximun de 20
+                    caractères</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description : </label>
+            <input type="text" id="description" class="form-control" formControlName="description" />
+            <div *ngIf="isSubmitted && articleFormGroupControls.description.invalid" class="text-danger">
+                <div *ngIf="articleFormGroupControls.description.errors.required">Le champs est requis</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="prix">Prix : </label>
+            <input type="text" id="prix" class="form-control" formControlName="prix" />
+            <div *ngIf="isSubmitted && articleFormGroupControls.prix.invalid" class="text-danger">
+                <div *ngIf="articleFormGroupControls.prix.errors.required">Le champs est requis</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="stock">Stock : </label>
+            <input type="text" id="stock" class="form-control" formControlName="stock" />
+            <div *ngIf="isSubmitted && articleFormGroupControls.stock.invalid" class="text-danger">
+                <div *ngIf="articleFormGroupControls.stock.errors.required">Le champs est requis</div>
+            </div>
+        </div>
+
+        <div formArrayName="magasins" class="form-group">
+            <label for="magasin">Magasins : </label>
+            <div>
+                <button type="button" class="btn btn-info" (click)="onAddMagasin()">Add Magasin</button>
+            </div>
+
+            <div *ngFor="let magasin of magasinsFormArray.controls; let i = index">
+                <div>
+                    <input type="text" id="magasin" class="form-control" [formControlName]="i" />
+                    <div *ngIf="isSubmitted && magasin.invalid" class="text-danger">
+                        <div *ngIf="magasin.errors.required">Le champs est requis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="articleForm.invalid" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>

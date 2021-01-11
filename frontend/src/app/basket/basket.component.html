@@ -1,0 +1,10 @@
+<div class="container p-2 m-2">
+    <h5>Basket</h5>
+    <div *ngFor="let item of basket" class="border border-black bg-white p-2 mb-2">
+        <p>{{item.nom}}</p>
+        <p>{{item.quantite}} kg</p>
+        <button class="btn btn-success mr-2" (click)="onAdd(item.id)">Add</button>
+        <button class="btn btn-danger" (click)="onDelete(item.id)">Delete</button>
+    </div>
+    <button class="btn btn-info" (click)="onBack()">Back To List</button>
+</div>
