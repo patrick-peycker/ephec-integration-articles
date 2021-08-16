@@ -22,8 +22,9 @@ export class LoginComponent implements OnInit {
   getIsAuth() { return this.authentication.isAuthenticated() }
 
   onLogin(form: NgForm) {
-    if (form.valid) {
-      this.authentication.signIn(form.value.email, form.value.password).subscribe(
+    if (!form.invalid) {
+      this.authentication.signIn(form.value.email, form.value.password)
+      .subscribe(
         content => {
           const ru = this.route.snapshot.params['ru'];
             if (ru != null) {
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
           },
           
         error => {
-          console.log('signin error into component' + JSON.stringify(error));
+          console.log('signin error into Login Component' + JSON.stringify(error));
         }
       );
     }

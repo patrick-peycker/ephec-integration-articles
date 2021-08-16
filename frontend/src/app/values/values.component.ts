@@ -10,7 +10,7 @@ import { HelperService } from '../services/helper.service';
 export class ValuesComponent implements OnInit {
 
   values: string[];
-  endpoint: string = 'api/values/index';
+  endpoint: string = '/api/values/index';
 
   constructor(private http: HttpClient, private helper: HelperService) { }
 
@@ -20,7 +20,8 @@ export class ValuesComponent implements OnInit {
       this.helper.base + this.endpoint,
       { headers: new HttpHeaders({ "Authorization": "Bearer " + token }) }
     ).subscribe(
-      content => {this.values = content}
+      content => {this.values = content},
+      error => { console.log('signin error into Value Component' + JSON.stringify(error)); }
     )
   }
 }

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class HelperService {
 
-  base : string = 'http://localhost:5001/';
+  base : string = 'http://localhost:5001';
 
   constructor() { }
 }

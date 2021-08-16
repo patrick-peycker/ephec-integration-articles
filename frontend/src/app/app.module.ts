@@ -37,7 +37,7 @@ export function tokenGetter() {
     CounterComponent,
     BasketMenuComponent,
     ArticleAddComponent,
-    ValuesComponent
+    ValuesComponent,
   ],
 
   imports: [

@@ -1,20 +1,26 @@
 <div class="container m-2 p-2">
+
     <h5>Login</h5>
 
-    <!-- Form réactive-->
-    <form (ngSubmit)="onLogin(f)" #f="ngForm">
+    <div *ngIf="getIsAuth()" class="row">
+        <button (click)="onLogout()" class="btn btn-danger" >Sign Out</button>
+    </div>
 
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" name="email" class="form-control" ngModel required />
-        </div>
-        
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" ngModel required />
-        </div>
+    <div *ngIf="!getIsAuth()" class="row">
+        <form (ngSubmit)="onLogin(f)" #f="ngForm" class="form">
 
-        <button [disabled]="getIsAuth() || f.invalid" type="submit" class="btn btn-success m-2" (click)="onLogin(f)">Login</button>
-        <button [disabled]="!getIsAuth()" type="button" class="btn btn-danger m-2" (click)="onLogout()">Logout</button>
-    </form>
+            <div class="form-group">
+                <label for="email">Email : </label>
+                <input name="email" type="text" ngModel required class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password : </label>
+                 <input name="password" type="password" ngModel required class="form-control"/>
+            </div>
+
+            <button type="submit" [disabled]="f.invalid" class="btn btn-success">Sign In</button>
+        </form>
+    </div>
+
 </div>

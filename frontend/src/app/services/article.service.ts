@@ -27,17 +27,17 @@ export class ArticleService {
   }
 
   getAll() {
-    this.endpoint = 'api/article/list';
+    this.endpoint = '/api/article/list';
     return this.httpClient.get<ArticleModel[]>(this.base + this.endpoint);
   }
 
   getById(id: number) {
-    this.endpoint = "api/article/item?id=";
+    this.endpoint = "/api/article/item?id=";
     return this.httpClient.get<ArticleModel>(this.base + this.endpoint + id);
   }
 
   addArticle(article: ArticleModel) {
-    this.endpoint = "api/article/add";
+    this.endpoint = "/api/article/add";
     return this.httpClient.post(this.base + this.endpoint, article);
   }
 
